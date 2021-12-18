@@ -1,0 +1,17 @@
+module.exports = {
+  publicPath: '/',
+
+  chainWebpack: config => {
+    config.resolve.symlinks(false)
+    config
+      .plugin('html')
+      .tap(args => {
+        args[0].title = process.env.VUE_APP_TITLE
+        return args
+      })
+  },
+  configureWebpack: {
+    plugins: [
+    ],
+  },
+}
